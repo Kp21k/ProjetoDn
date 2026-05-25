@@ -7,6 +7,19 @@
   if (el) el.textContent = diff >= 0 ? diff : 0;
 })();
 
+// ─── ALTURA DAS COLUNAS FLUTUANTES NO MOBILE ───
+function syncFloatHeight() {
+  if (window.innerWidth > 600) return;
+  const letter = document.querySelector('.letter-col');
+  const layout = document.getElementById('mainLayout');
+  if (letter && layout) {
+    layout.style.minHeight = letter.offsetHeight + 'px';
+  }
+}
+
+window.addEventListener('load', syncFloatHeight);
+window.addEventListener('resize', syncFloatHeight);
+
 // ─── CARREGAR FOTO NO POLAROID E NA PÁGINA DE MEMÓRIA ───
 function loadPhoto(input, imgId) {
   const file = input.files[0];

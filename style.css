@@ -630,12 +630,11 @@ body::after {
 @media (max-width: 600px) {
 
   .page {
-    padding: 0 12px 60px;
+    padding: 0 0 60px;
   }
 
-  /* Header menor */
   .header {
-    padding: 32px 0 20px;
+    padding: 32px 12px 20px;
   }
 
   .title-sub {
@@ -658,82 +657,108 @@ body::after {
     letter-spacing: 2px;
   }
 
-  /* Layout vira coluna única */
+  .blue-band {
+    margin: 20px 12px;
+  }
+
+  /* Layout: coluna única, carta ocupa tudo */
   .main-layout {
     grid-template-columns: 1fr;
     gap: 0;
+    position: relative;
   }
 
-  /* Ordem: carta primeiro, fotos depois em grid 2x2 */
-  .letter-col  { order: 1; margin-bottom: 28px; }
-  .photos-left { order: 2; }
+  .letter-col   { order: 1; position: relative; z-index: 1; }
+  .photos-left  { order: 2; }
   .photos-right { order: 3; }
 
-  /* Fotos lado a lado em 2 colunas */
-  .photos-col {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
+  /* Carta com padding lateral generoso pra não roçar nas fotos */
+  .letter-paper {
+    padding: 24px 22px 32px;
+    margin: 0 12px;
+  }
+
+  .letter-text  { font-size: 15px; line-height: 1.8; }
+  .salutation   { font-size: 18px; }
+  .closing      { font-size: 14px; }
+  .signature    { font-size: 18px; }
+
+  /* Colunas de fotos: absolutas, flutuando nas laterais da carta */
+  .photos-left,
+  .photos-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px 0;
+    pointer-events: none;
+    gap: 0;
     padding-top: 0;
   }
 
-  /* Remove rotações no celular pra não cortar */
-  .photos-left .polaroid-wrapper:nth-child(1) .polaroid,
-  .photos-left .polaroid-wrapper:nth-child(2) .polaroid,
-  .photos-right .polaroid-wrapper:nth-child(1) .polaroid,
-  .photos-right .polaroid-wrapper:nth-child(2) .polaroid {
-    transform: none;
+  .photos-left  { left: 0; }
+  .photos-right { right: 0; }
+
+  .photos-left .polaroid-wrapper,
+  .photos-right .polaroid-wrapper {
+    pointer-events: all;
+    width: 72px;
+    gap: 4px;
   }
 
-  .polaroid:hover {
-    transform: scale(1.03) !important;
+  /* Polaroids menores e semi-transparentes */
+  .photos-left .polaroid,
+  .photos-right .polaroid {
+    opacity: 0.82;
+    padding: 5px 5px 18px;
+    box-shadow: 2px 4px 14px rgba(43,108,176,0.2);
   }
 
-  /* Carta */
-  .letter-paper {
-    padding: 24px 18px 28px;
+  .photos-left .polaroid-wrapper:nth-child(1) .polaroid  { transform: rotate(-5deg) translateX(-6px); }
+  .photos-left .polaroid-wrapper:nth-child(2) .polaroid  { transform: rotate(4deg) translateX(-6px); }
+  .photos-right .polaroid-wrapper:nth-child(1) .polaroid { transform: rotate(5deg) translateX(6px); }
+  .photos-right .polaroid-wrapper:nth-child(2) .polaroid { transform: rotate(-4deg) translateX(6px); }
+
+  .photos-left .polaroid:hover,
+  .photos-right .polaroid:hover {
+    opacity: 1;
+    transform: rotate(0deg) scale(1.08) translateX(0) !important;
+    z-index: 20;
   }
 
-  .letter-text {
-    font-size: 15px;
-    line-height: 1.8;
+  .photos-left .polaroid-caption,
+  .photos-right .polaroid-caption {
+    font-size: 9px;
+    margin-top: 3px;
   }
 
-  .salutation {
-    font-size: 18px;
+  /* Botão "ver memória" fica pequeninho embaixo do polaroid */
+  .photos-left .page-btn,
+  .photos-right .page-btn {
+    font-size: 8px;
+    padding: 3px 8px;
+    letter-spacing: 1px;
   }
 
-  .closing {
-    font-size: 14px;
-  }
-
-  .signature {
-    font-size: 18px;
-  }
-
-  /* Overlay de memória ocupa tela toda */
+  /* Overlay */
   .memory-page {
     width: 96%;
     max-height: 90vh;
     padding: 24px 16px 28px;
   }
 
-  .memory-title {
-    font-size: 22px;
-  }
+  .memory-title { font-size: 22px; }
+  .memory-text  { font-size: 15px; }
 
-  .memory-text {
-    font-size: 15px;
-  }
-
-  /* Footer */
   .footer {
     margin-top: 36px;
+    padding: 0 12px;
   }
 
-  .footer-text {
-    letter-spacing: 3px;
-  }
+  .footer-text { letter-spacing: 3px; }
 }
 
 /* ════════════════════════════════════════
@@ -752,16 +777,17 @@ body::after {
     padding: 8px 14px;
   }
 
-  .photos-col {
-    gap: 14px;
+  .photos-left,
+  .photos-right {
+    width: 60px;
   }
 
-  .polaroid-caption {
-    font-size: 11px;
+  .photos-left .polaroid-wrapper,
+  .photos-right .polaroid-wrapper {
+    width: 60px;
   }
 
-  .page-btn {
-    font-size: 9px;
-    padding: 5px 10px;
+  .letter-paper {
+    padding: 20px 16px 28px;
   }
 }
