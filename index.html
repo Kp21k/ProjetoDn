@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para a minha agápi mou</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="dome"></div>
+    <div class="dome-base"></div>
+    <div class="header-line">
+      <div class="header-rule"></div>
+      <span class="meander">✦</span>
+      <div class="header-rule"></div>
+    </div>
+    <h1 class="title-main">Para a minha <em>agápi mou</em></h1>
+    <p class="title-sub">uma carta do mar egeu · com amor</p>
+
+    <!-- CONTADOR -->
+    <div class="counter-box">
+      <span class="counter-label">juntos há</span>
+      <span class="counter-number" id="dayCounter">0</span>
+      <span class="counter-label">dias</span>
+    </div>
+  </div>
+
+  <!-- FAIXA AZUL -->
+  <div class="blue-band"></div>
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="main-layout">
+
+    <!-- FOTOS ESQUERDA -->
+    <div class="photos-col photos-left">
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <input type="file" accept="image/*" onchange="loadPhoto(this,'img1')">
+            <span class="photo-icon">📷</span>
+            <span class="photo-hint">nossa foto<br>aqui ♡</span>
+            <img id="img1" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">nós dois ✦</p>
+        </div>
+        <button class="page-btn" onclick="openPage('page1')">✦ ver memória</button>
+      </div>
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <input type="file" accept="image/*" onchange="loadPhoto(this,'img2')">
+            <span class="photo-icon">📷</span>
+            <span class="photo-hint">nossa foto<br>aqui ♡</span>
+            <img id="img2" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">memória eterna ✦</p>
+        </div>
+        <button class="page-btn" onclick="openPage('page2')">✦ ver memória</button>
+      </div>
+
+    </div>
+
+    <!-- CARTA -->
+    <div class="letter-col">
+      <div class="letter-paper">
+        <div class="letter-icon">
+          <div class="letter-icon-inner">🫧</div>
+        </div>
+        <div class="letter-text">
+          <span class="salutation">Minha querida,</span>
+
+          <p>Se Santorini existe como metáfora, é porque o mundo precisava de um lugar para se parecer com você — branco demais para ser real, azul demais para ser apenas cor.</p>
+
+          <div class="letter-divider">
+            <div class="letter-divider-line"></div>
+            <div class="letter-divider-dot"></div>
+            <div class="letter-divider-line right"></div>
+          </div>
+
+          <p>Há algo nas paredes caiadas, nas janelas azuis e no vento que vem do mar que me lembram da leveza que você traz pra minha vida. Como se tudo ao redor de você fosse mais limpo, mais bonito, mais cheio de luz.</p>
+
+          <p>Você é o tipo de pessoa que faz o verão parecer uma escolha e não uma estação. Que faz qualquer lugar parecer lugar de ficar.</p>
+
+          <div class="letter-divider">
+            <div class="letter-divider-line"></div>
+            <div class="letter-divider-dot"></div>
+            <div class="letter-divider-line right"></div>
+          </div>
+
+          <p>Por isso escrevo isso pra você — não no papel, mas aqui, entre a luz e o azul — pra te dizer que te amo do jeito que o mar ama as pedras brancas: com constância, com força, e com muita beleza.</p>
+
+          <div class="closing">
+            sempre ao seu lado,
+            <span class="signature">seu amor ♡</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOTOS DIREITA -->
+    <div class="photos-col photos-right">
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <input type="file" accept="image/*" onchange="loadPhoto(this,'img3')">
+            <span class="photo-icon">📷</span>
+            <span class="photo-hint">nossa foto<br>aqui ♡</span>
+            <img id="img3" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">sempre juntos ✦</p>
+        </div>
+        <button class="page-btn" onclick="openPage('page3')">✦ ver memória</button>
+      </div>
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <input type="file" accept="image/*" onchange="loadPhoto(this,'img4')">
+            <span class="photo-icon">📷</span>
+            <span class="photo-hint">nossa foto<br>aqui ♡</span>
+            <img id="img4" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">nosso mundo ✦</p>
+        </div>
+        <button class="page-btn" onclick="openPage('page4')">✦ ver memória</button>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-domes">
+      <div class="mini-dome">
+        <div class="mini-dome-top"></div>
+        <div class="mini-dome-base"></div>
+      </div>
+      <div class="mini-dome">
+        <div class="mini-dome-top tall"></div>
+        <div class="mini-dome-base tall"></div>
+      </div>
+      <div class="mini-dome">
+        <div class="mini-dome-top"></div>
+        <div class="mini-dome-base"></div>
+      </div>
+    </div>
+    <p class="footer-text">Santorini · Mar Egeu · Com todo o meu amor</p>
+  </div>
+
+</div>
+
+<!-- OVERLAY DE PÁGINAS -->
+<div class="overlay" id="overlay" onclick="closePage()">
+  <div class="memory-page" onclick="event.stopPropagation()">
+    <button class="close-btn" onclick="closePage()">✕</button>
+
+    <div class="memory-content" id="page1" style="display:none">
+      <div class="memory-photo-wrap">
+        <img id="page1-img" alt="nossa foto" style="display:none">
+        <div class="memory-photo-placeholder" id="page1-placeholder">📷</div>
+      </div>
+      <h2 class="memory-title">nós dois ✦</h2>
+      <p class="memory-text">Edite esse texto no arquivo <code>index.html</code> para escrever uma memória especial sobre essa foto. Cada polaroid pode ter sua própria história.</p>
+    </div>
+
+    <div class="memory-content" id="page2" style="display:none">
+      <div class="memory-photo-wrap">
+        <img id="page2-img" alt="nossa foto" style="display:none">
+        <div class="memory-photo-placeholder" id="page2-placeholder">📷</div>
+      </div>
+      <h2 class="memory-title">memória eterna ✦</h2>
+      <p class="memory-text">Edite esse texto no arquivo <code>index.html</code> para escrever uma memória especial sobre essa foto.</p>
+    </div>
+
+    <div class="memory-content" id="page3" style="display:none">
+      <div class="memory-photo-wrap">
+        <img id="page3-img" alt="nossa foto" style="display:none">
+        <div class="memory-photo-placeholder" id="page3-placeholder">📷</div>
+      </div>
+      <h2 class="memory-title">sempre juntos ✦</h2>
+      <p class="memory-text">Edite esse texto no arquivo <code>index.html</code> para escrever uma memória especial sobre essa foto.</p>
+    </div>
+
+    <div class="memory-content" id="page4" style="display:none">
+      <div class="memory-photo-wrap">
+        <img id="page4-img" alt="nossa foto" style="display:none">
+        <div class="memory-photo-placeholder" id="page4-placeholder">📷</div>
+      </div>
+      <h2 class="memory-title">nosso mundo ✦</h2>
+      <p class="memory-text">Edite esse texto no arquivo <code>index.html</code> para escrever uma memória especial sobre essa foto.</p>
+    </div>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
