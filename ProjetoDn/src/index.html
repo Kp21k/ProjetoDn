@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para a minha agápi mou</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Josefin+Sans:wght@300;400&family=Playfair+Display:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="dome"></div>
+    <div class="dome-base"></div>
+    <div class="header-line">
+      <div class="header-rule"></div>
+      <span class="meander">✦</span>
+      <div class="header-rule"></div>
+    </div>
+    <h1 class="title-main">Para a minha <em>melhor escolha</em></h1>
+    <p class="title-sub">uma carta do seu mini namorado· com amor</p>
+    <div class="counter-box">
+      <span class="counter-label">juntos há</span>
+      <span class="counter-number" id="dayCounter">0</span>
+      <span class="counter-label">dias</span>
+    </div>
+  </div>
+
+  <!-- FAIXA AZUL -->
+  <div class="blue-band"></div>
+
+  <!-- LAYOUT PRINCIPAL -->
+  <div class="main-layout" id="mainLayout">
+
+    <!-- FOTOS ESQUERDA -->
+    <div class="photos-col photos-left">
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid" data-index="0">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <img src="../img/img1.jpeg" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">nós dois ✦</p>
+        </div>
+      </div>
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid" data-index="1">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <img src="../img/img2.jpeg" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">memória eterna ✦</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CARTA -->
+    <div class="letter-col">
+      <div class="letter-paper">
+        <div class="letter-icon"><div class="letter-icon-inner">L+K</div></div>
+        <div class="letter-text">
+          <span class="salutation">Meu Bem,</span>
+          <p> Se .</p>
+          <div class="letter-divider">
+            <div class="letter-divider-line"></div>
+            <div class="letter-divider-dot"></div>
+            <div class="letter-divider-line right"></div>
+          </div>
+          <p>a.</p>
+          <p>b.</p>
+          <div class="letter-divider">
+            <div class="letter-divider-line"></div>
+            <div class="letter-divider-dot"></div>
+            <div class="letter-divider-line right"></div>
+          </div>
+          <p>c.</p>
+          <div class="closing">
+            Feliz Dia dos namorados,
+            <span class="signature">seu bem ♡</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOTOS DIREITA -->
+    <div class="photos-col photos-right">
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid" data-index="2">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <img src="../img/img3.jpeg" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">sempre juntos ✦</p>
+        </div>
+      </div>
+
+      <div class="polaroid-wrapper">
+        <div class="polaroid" data-index="3">
+          <div class="tape"></div>
+          <div class="polaroid-photo">
+            <img src="../img/img4.jpeg" alt="nossa foto">
+          </div>
+          <p class="polaroid-caption">nosso mundo ✦</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-domes">
+      <div class="mini-dome"><div class="mini-dome-top"></div><div class="mini-dome-base"></div></div>
+      <div class="mini-dome"><div class="mini-dome-top tall"></div><div class="mini-dome-base tall"></div></div>
+      <div class="mini-dome"><div class="mini-dome-top"></div><div class="mini-dome-base"></div></div>
+    </div>
+    <p class="footer-text">Santorini · Mar Egeu · Com todo o meu amor</p>
+  </div>
+
+</div>
+
+<!-- GALERIA OVERLAY -->
+<div class="gallery-overlay" id="galleryOverlay" onclick="closeGallery()">
+  <div class="gallery-modal" onclick="event.stopPropagation()">
+
+    <div class="gallery-header">
+      <div class="gallery-deco">✦</div>
+      <h2 class="gallery-title">nossas memórias</h2>
+      <p class="gallery-subtitle">· cada foto, uma história ·</p>
+    </div>
+
+    <!--
+      MÚSICA: coloque musica.mp3 na mesma pasta e descomente abaixo:
+    -->
+    <!-- <audio id="galleryMusic" loop>
+      <source src="musica.mp3" type="audio/mpeg">
+    </audio> -->
+
+    <div class="gallery-stage">
+      <button class="gallery-arrow left" onclick="changeSlide(-1)">&#8592;</button>
+      <div class="gallery-frame">
+        <div class="gallery-slides" id="gallerySlides">
+          <!-- Galeria 1: img1 até img4 -->
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img1.jpeg" alt=""></div><p class="gallery-caption">♡ 01</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img2.jpeg" alt=""></div><p class="gallery-caption">♡ 02</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img3.jpeg" alt=""></div><p class="gallery-caption">♡ 03</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img4.jpeg" alt=""></div><p class="gallery-caption">♡ 04</p></div>
+          <!-- Galeria 2: img5 até img8 -->
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img5.jpeg" alt=""></div><p class="gallery-caption">♡ 05</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img6.jpeg" alt=""></div><p class="gallery-caption">♡ 06</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img7.jpeg" alt=""></div><p class="gallery-caption">♡ 07</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img8.jpeg" alt=""></div><p class="gallery-caption">♡ 08</p></div>
+          <!-- Galeria 3: img9 até img12 -->
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img9.jpeg" alt=""></div><p class="gallery-caption">♡ 09</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img10.jpeg" alt=""></div><p class="gallery-caption">♡ 10</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img11.jpeg" alt=""></div><p class="gallery-caption">♡ 11</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img12.jpeg" alt=""></div><p class="gallery-caption">♡ 12</p></div>
+          <!-- Galeria 4: img13 até img16 -->
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img13.jpeg" alt=""></div><p class="gallery-caption">♡ 13</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img14.jpeg" alt=""></div><p class="gallery-caption">♡ 14</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img15.jpeg" alt=""></div><p class="gallery-caption">♡ 15</p></div>
+          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img16.jpeg" alt=""></div><p class="gallery-caption">♡ 16</p></div>
+        </div>
+      </div>
+      <button class="gallery-arrow right" onclick="changeSlide(1)">&#8594;</button>
+    </div>
+
+    <!-- Dots (16 no total, agrupados em 4 grupos) -->
+    <div class="gallery-dots" id="galleryDots"></div>
+
+    <button class="gallery-close" onclick="closeGallery()">✕</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
