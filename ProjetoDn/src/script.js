@@ -1,5 +1,5 @@
 // ─── CONTADOR DE DIAS ───
-(function() {
+(function () {
   const start = new Date('2025-11-05T00:00:00');
   const today = new Date();
   const diff = Math.floor((today - start) / (1000 * 60 * 60 * 24));
@@ -18,76 +18,93 @@ function syncFloatHeight() {
 window.addEventListener('load', syncFloatHeight);
 window.addEventListener('resize', syncFloatHeight);
 
-// ─── GALERIA ───
-const TOTAL = 16;
-let currentSlide = 0;
-
-// Gera os dots automaticamente
-(function buildDots() {
-  const container = document.getElementById('galleryDots');
-  if (!container) return;
-  for (let i = 0; i < TOTAL; i++) {
-    const dot = document.createElement('span');
-    dot.className = 'gdot' + (i === 0 ? ' active' : '');
-    dot.onclick = () => goToSlide(i);
-    container.appendChild(dot);
+// ─── DADOS DOS POLAROIDS ───
+// Edite os textos abaixo para personalizar cada foto
+const POLAROID_DATA = [
+  {
+    img: '../img/img1.jpeg',
+    caption: 'nós dois ✦',
+    // ↓ Substitua pelo texto que quiser para a foto 1
+    text: 'A  mo quando você deita em mim.'
+  },
+  {
+    img: '../img/img2.jpeg',
+    caption: 'memória eterna ✦',
+    // ↓ Substitua pelo texto que quiser para a foto 2
+    text: 'Amo tirar foto beijando você.'
+  },
+  {
+    img: '../img/img3.jpeg',
+    caption: 'sempre juntos ✦',
+    // ↓ Substitua pelo texto que quiser para a foto 3
+    text: 'Minha foto preferida com sua taylor.'
+  },
+  {
+    img: '../img/img4.jpeg',
+    caption: 'nosso mundo ✦',
+    // ↓ Substitua pelo texto que quiser para a foto 4
+    text: 'Você é a única que me faz se sentir em casa.'
   }
-})();
+];
 
-// Cada polaroid abre a galeria no slide correspondente ao seu data-index
-// polaroid 0 → img1 (slide 0)
-// polaroid 1 → img2 (slide 1) ... etc
+// ─── ESTADO ───
+let currentAudio = null;
+
+// ─── CLIQUE NOS POLAROIDS ───
 document.querySelectorAll('.polaroid').forEach(polaroid => {
-  polaroid.addEventListener('click', function() {
-    openGallery(parseInt(this.dataset.index));
+  polaroid.addEventListener('click', function () {
+    openPhoto(parseInt(this.dataset.index));
   });
 });
 
-function openGallery(index) {
-  currentSlide = index;
-  renderSlide();
-  document.getElementById('galleryOverlay').classList.add('active');
+// ─── ABRIR MODAL ───
+function openPhoto(index) {
+  const data = POLAROID_DATA[index];
+  if (!data) return;
+
+  // Foto e texto
+  document.getElementById('photoModalImg').src = data.img;
+  document.getElementById('photoModalCaption').textContent = data.caption;
+  document.getElementById('photoModalText').textContent = data.text;
+
+  // Mostra overlay
+  document.getElementById('photoOverlay').classList.add('active');
   document.body.style.overflow = 'hidden';
-  const music = document.getElementById('galleryMusic');
-  if (music) music.play().catch(() => {});
+
+  // Para qualquer música que esteja tocando
+  stopAllAudio();
+
+  // Toca a música do polaroid clicado
+  const audio = document.getElementById('photoAudio' + index);
+  if (audio) {
+    currentAudio = audio;
+    audio.currentTime = 0;
+    audio.play().catch(() => {
+      // Autoplay bloqueado pelo navegador — silencia sem erro
+    });
+  }
 }
 
-function closeGallery() {
-  document.getElementById('galleryOverlay').classList.remove('active');
+// ─── FECHAR MODAL ───
+function closePhoto() {
+  document.getElementById('photoOverlay').classList.remove('active');
   document.body.style.overflow = '';
-  const music = document.getElementById('galleryMusic');
-  if (music) { music.pause(); music.currentTime = 0; }
+  stopAllAudio();
 }
 
-function renderSlide() {
-  document.getElementById('gallerySlides').style.transform = `translateX(-${currentSlide * 100}%)`;
-  document.querySelectorAll('.gdot').forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+// ─── PARA TODOS OS ÁUDIOS ───
+function stopAllAudio() {
+  for (let i = 0; i < POLAROID_DATA.length; i++) {
+    const audio = document.getElementById('photoAudio' + i);
+    if (audio) {
+      audio.pause();
+      audio.currentTime = 0;
+    }
+  }
+  currentAudio = null;
 }
 
-function changeSlide(dir) {
-  currentSlide = (currentSlide + dir + TOTAL) % TOTAL;
-  renderSlide();
-}
-
-function goToSlide(index) {
-  currentSlide = index;
-  renderSlide();
-}
-
-// Swipe touch
-let touchStartX = 0;
-const slidesEl = document.getElementById('gallerySlides');
-if (slidesEl) {
-  slidesEl.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; }, { passive: true });
-  slidesEl.addEventListener('touchend',   e => {
-    const dx = e.changedTouches[0].clientX - touchStartX;
-    if (Math.abs(dx) > 40) changeSlide(dx < 0 ? 1 : -1);
-  });
-}
-
-// Teclado
+// ─── TECLADO ───
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape')     closeGallery();
-  if (e.key === 'ArrowRight') changeSlide(1);
-  if (e.key === 'ArrowLeft')  changeSlide(-1);
+  if (e.key === 'Escape') closePhoto();
 });

@@ -20,7 +20,7 @@
       <div class="header-rule"></div>
     </div>
     <h1 class="title-main">Para a minha <em>melhor escolha</em></h1>
-    <p class="title-sub">uma carta do seu mini namorado· com amor</p>
+    <p class="title-sub">uma carta do seu mini namorado · com amor</p>
     <div class="counter-box">
       <span class="counter-label">juntos há</span>
       <span class="counter-number" id="dayCounter">0</span>
@@ -65,23 +65,23 @@
         <div class="letter-icon"><div class="letter-icon-inner">L+K</div></div>
         <div class="letter-text">
           <span class="salutation">Meu Bem,</span>
-          <p> Se .</p>
+          <p>Acho que se eu tivesse demorado um dia a mais para te encontrar, não seria tão mágico como é. O nosso encontro foi daquele tipo: a pessoa certa, na hora certa, do jeito certo. Me arrependo de todos os dias que não passo, não passei e não vou passar do seu lado.</p>
           <div class="letter-divider">
             <div class="letter-divider-line"></div>
             <div class="letter-divider-dot"></div>
             <div class="letter-divider-line right"></div>
           </div>
-          <p>a.</p>
-          <p>b.</p>
+          <p style="margin-left: 9rem;">Te Amo</p>
+          <p style="margin-left: 8rem;">Mais que tudo</p>
           <div class="letter-divider">
             <div class="letter-divider-line"></div>
             <div class="letter-divider-dot"></div>
             <div class="letter-divider-line right"></div>
           </div>
-          <p>c.</p>
+          <p></p>
           <div class="closing">
             Feliz Dia dos namorados,
-            <span class="signature">seu bem ♡</span>
+            <span class="signature">Seu Bem ♡</span>
           </div>
         </div>
       </div>
@@ -126,56 +126,32 @@
 
 </div>
 
-<!-- GALERIA OVERLAY -->
-<div class="gallery-overlay" id="galleryOverlay" onclick="closeGallery()">
-  <div class="gallery-modal" onclick="event.stopPropagation()">
+<!-- ═══════════════════════════════════════
+     MODAL DE POLAROID
+     Abre ao clicar em qualquer polaroid,
+     mostra só aquela foto + texto + música
+     ═══════════════════════════════════════ -->
+<div class="photo-overlay" id="photoOverlay" onclick="closePhoto()">
+  <div class="photo-modal" onclick="event.stopPropagation()">
 
-    <div class="gallery-header">
-      <div class="gallery-deco">✦</div>
-      <h2 class="gallery-title">nossas memórias</h2>
-      <p class="gallery-subtitle">· cada foto, uma história ·</p>
-    </div>
+    <button class="photo-close" onclick="closePhoto()">✕</button>
 
-    <!--
-      MÚSICA: coloque musica.mp3 na mesma pasta e descomente abaixo:
-    -->
-    <!-- <audio id="galleryMusic" loop>
-      <source src="musica.mp3" type="audio/mpeg">
-    </audio> -->
-
-    <div class="gallery-stage">
-      <button class="gallery-arrow left" onclick="changeSlide(-1)">&#8592;</button>
-      <div class="gallery-frame">
-        <div class="gallery-slides" id="gallerySlides">
-          <!-- Galeria 1: img1 até img4 -->
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img1.jpeg" alt=""></div><p class="gallery-caption">♡ 01</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img2.jpeg" alt=""></div><p class="gallery-caption">♡ 02</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img3.jpeg" alt=""></div><p class="gallery-caption">♡ 03</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img4.jpeg" alt=""></div><p class="gallery-caption">♡ 04</p></div>
-          <!-- Galeria 2: img5 até img8 -->
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img5.jpeg" alt=""></div><p class="gallery-caption">♡ 05</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img6.jpeg" alt=""></div><p class="gallery-caption">♡ 06</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img7.jpeg" alt=""></div><p class="gallery-caption">♡ 07</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img8.jpeg" alt=""></div><p class="gallery-caption">♡ 08</p></div>
-          <!-- Galeria 3: img9 até img12 -->
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img9.jpeg" alt=""></div><p class="gallery-caption">♡ 09</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img10.jpeg" alt=""></div><p class="gallery-caption">♡ 10</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img11.jpeg" alt=""></div><p class="gallery-caption">♡ 11</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img12.jpeg" alt=""></div><p class="gallery-caption">♡ 12</p></div>
-          <!-- Galeria 4: img13 até img16 -->
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img13.jpeg" alt=""></div><p class="gallery-caption">♡ 13</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img14.jpeg" alt=""></div><p class="gallery-caption">♡ 14</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img15.jpeg" alt=""></div><p class="gallery-caption">♡ 15</p></div>
-          <div class="gallery-slide"><div class="gallery-img-wrap"><img src="../img/img16.jpeg" alt=""></div><p class="gallery-caption">♡ 16</p></div>
-        </div>
+    <div class="photo-modal-frame">
+      <div class="photo-modal-tape"></div>
+      <div class="photo-modal-img-wrap">
+        <img id="photoModalImg" src="" alt="">
       </div>
-      <button class="gallery-arrow right" onclick="changeSlide(1)">&#8594;</button>
+      <p class="photo-modal-caption" id="photoModalCaption"></p>
     </div>
 
-    <!-- Dots (16 no total, agrupados em 4 grupos) -->
-    <div class="gallery-dots" id="galleryDots"></div>
+    <div class="photo-modal-text" id="photoModalText"></div>
 
-    <button class="gallery-close" onclick="closeGallery()">✕</button>
+    <!-- Áudios — um por polaroid -->
+    <audio id="photoAudio0" loop><source src="../msc/musica1(iris).mp3" type="audio/mpeg"></audio>
+    <audio id="photoAudio1" loop><source src="../msc/musica4(kiss).mp3" type="audio/mpeg"></audio>
+    <audio id="photoAudio2" loop><source src="../msc/musica3(taylor).mp3" type="audio/mpeg"></audio>
+    <audio id="photoAudio3" loop><source src="../msc/musica2(paramore).mp3" type="audio/mpeg"></audio>
+
   </div>
 </div>
 
